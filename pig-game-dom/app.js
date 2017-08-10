@@ -32,6 +32,7 @@ var checkForOne = function(dice){
 
 
 
+
 /*
 GAME RULES:
 
