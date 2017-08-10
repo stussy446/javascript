@@ -1,6 +1,7 @@
 $(document).ready(function(){
   newGameListener();
   diceListener();
+  holdListener();
 })
 
 var scores, roundScore, activePlayer, dice;
@@ -42,6 +43,27 @@ var newGameListener = function(){
 var beginGame = function(){
   alert("Starting New Game!")
   $('.begin').text(0);
+}
+
+var holdListener = function(){
+  $('.btn-hold').on("click", addAndChangePlayer)
+}
+
+var addAndChangePlayer = function(){
+  alert("adding points and switching players...")
+  var currentScore = parseInt($('#score-' + activePlayer).text());
+  currentScore += roundScore;
+  $('#score-' + activePlayer).text(currentScore);
+  roundScore = 0;
+  switchActive();
+}
+
+var switchActive = function(){
+  if(activePlayer === 1){
+    activePlayer = 0;
+  } else{
+    activePlayer = 1;
+  }
 }
 
 
