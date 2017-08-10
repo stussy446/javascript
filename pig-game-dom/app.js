@@ -41,7 +41,6 @@ var newGameListener = function(){
 }
 
 var beginGame = function(){
-  alert("Starting New Game!")
   $('.begin').text(0);
 }
 
@@ -53,8 +52,10 @@ var addAndChangePlayer = function(){
   alert("adding points and switching players...")
   var currentScore = parseInt($('#score-' + activePlayer).text());
   currentScore += roundScore;
+  scores[activePlayer] = currentScore;
   $('#score-' + activePlayer).text(currentScore);
   roundScore = 0;
+  checkForWinner();
   switchActive();
 }
 
@@ -63,6 +64,13 @@ var switchActive = function(){
     activePlayer = 0;
   } else{
     activePlayer = 1;
+  }
+}
+
+var checkForWinner = function(){
+  if(scores[activePlayer] >= 100){
+    alert("That's 100! Player " + (activePlayer + 1) + " has won the game!")
+    beginGame();
   }
 }
 
