@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  newGameListener();
   diceListener();
 })
 
@@ -34,19 +35,14 @@ var diceListener = function(){
   });
 };
 
-// var rollDice = function(){
-//   var dice = Math.floor(Math.random() * 6) + 1;
-//   return dice;
-// }
+var newGameListener = function(){
+  $('.btn-new').on("click", beginGame)
+}
 
-// var checkForOne = function(dice){
-//   if(dice === 1){
-//     roundScore = 0;
-//     return true;
-//   };
-// };
-
-
+var beginGame = function(){
+  alert("Starting New Game!")
+  $('.begin').text(0);
+}
 
 
 
@@ -60,15 +56,6 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-
-
-// document.querySelector('#current-' + activePlayer).textContent = dice;
-
-// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
-
-// var x = document.querySelector('#score-0').textContent;
-
-// document.querySelector('.dice').style.display = 'none';
 
 
 
