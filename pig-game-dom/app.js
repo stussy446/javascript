@@ -8,15 +8,6 @@ scores = [0,0];
 roundScore = 0;
 activePlayer = 0;
 
-var diceListener = function(){
-  $('.btn-roll').on("click", function(e){
-    rollDice();
-    roundScore += dice 
-    checkForOne(dice);
-    $('#current-' + activePlayer).text(roundScore)
-  });
-};
-
 var rollDice = function(){
   dice = Math.floor(Math.random() * 6) + 1;
   return dice;
@@ -28,6 +19,32 @@ var checkForOne = function(dice){
     return true;
   };
 };
+
+var imageChanger = function(imageNumber){
+  return $('.dice').attr('src', 'images/dice-' + imageNumber + '.png');
+}
+
+var diceListener = function(){
+  $('.btn-roll').on("click", function(e){
+    rollDice();
+    imageChanger(dice);
+    roundScore += dice ;
+    checkForOne(dice);
+    $('#current-' + activePlayer).text(roundScore)
+  });
+};
+
+// var rollDice = function(){
+//   var dice = Math.floor(Math.random() * 6) + 1;
+//   return dice;
+// }
+
+// var checkForOne = function(dice){
+//   if(dice === 1){
+//     roundScore = 0;
+//     return true;
+//   };
+// };
 
 
 
