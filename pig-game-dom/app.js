@@ -24,7 +24,7 @@ var checkForOne = function(dice){
 
 var imageChanger = function(imageNumber){
   return $('.dice').attr('src', 'images/dice-' + imageNumber + '.png');
-}
+};
 
 var diceListener = function(){
   $('.btn-roll').on("click", function(e){
@@ -32,24 +32,24 @@ var diceListener = function(){
     imageChanger(dice);
     roundScore += dice ;
     checkForOne(dice);
-    $('#current-' + activePlayer).text(roundScore)
+    $('#current-' + activePlayer).text(roundScore);
   });
 };
 
 var newGameListener = function(){
-  $('.btn-new').on("click", beginGame)
-}
+  $('.btn-new').on("click", beginGame);
+};
 
 var beginGame = function(){
   $('.begin').text(0);
-}
+};
 
 var holdListener = function(){
-  $('.btn-hold').on("click", addAndChangePlayer)
-}
+  $('.btn-hold').on("click", addAndChangePlayer);
+};
 
 var addAndChangePlayer = function(){
-  alert("adding points and switching players...")
+  alert("adding points and switching players...");
   var currentScore = parseInt($('#score-' + activePlayer).text());
   currentScore += roundScore;
   scores[activePlayer] = currentScore;
@@ -57,22 +57,22 @@ var addAndChangePlayer = function(){
   roundScore = 0;
   checkForWinner();
   switchActive();
-}
+};
 
 var switchActive = function(){
   if(activePlayer === 1){
     activePlayer = 0;
   } else{
     activePlayer = 1;
-  }
-}
+  };
+};
 
 var checkForWinner = function(){
   if(scores[activePlayer] >= 100){
-    alert("That's 100! Player " + (activePlayer + 1) + " has won the game!")
+    alert("That's 100! Player " + (activePlayer + 1) + " has won the game!");
     beginGame();
-  }
-}
+  };
+};
 
 
 
